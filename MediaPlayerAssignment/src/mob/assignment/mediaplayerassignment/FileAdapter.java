@@ -51,7 +51,7 @@ public class FileAdapter extends ArrayAdapter<File> {
 			description.setText("file");
 		}
 
-		if (position == 0 && data[position].getParentFile() != null) {
+		if (position == 0 && (data.length == 1 || !data[1].getParent().equals(data[0].getParent()))) {
 			name.setText("..");
 		} else {
 			name.setText(data[position].getName());

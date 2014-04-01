@@ -22,8 +22,13 @@ public class FileBrowserActivity extends ListActivity {
 		root = new File("/"
 				+ Environment.getExternalStorageDirectory().getPath()
 				+ "/Music/"); // Andi's LG-E400
-		data = getFileData(root);
+		updateList(root);
+	}
+
+	private void updateList(File currentFile) {
+		data = getFileData(currentFile);
 		setListAdapter(new FileAdapter(getBaseContext(), data));
+		this.setTitle(currentFile.getPath());
 	}
 
 	private File[] getFileData(File file) {
@@ -45,8 +50,7 @@ public class FileBrowserActivity extends ListActivity {
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		File currentFile = data[position];
 		if (currentFile.isDirectory()) {
-			data = getFileData(currentFile);
-			setListAdapter(new FileAdapter(getBaseContext(), data));
+			updateList(currentFile);
 		} else if (FileType.isMediaFile(currentFile)) {
 			Intent playMediaIntent = new Intent(getBaseContext(),
 					MainActivity.class);
