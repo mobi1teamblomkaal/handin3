@@ -59,7 +59,7 @@ public class FileBrowserActivity extends ListActivity {
 			startActivity(playMediaIntent);
 		} else {
 			Toast.makeText(getBaseContext(),
-					"The file type is not an audio file", Toast.LENGTH_SHORT)
+					"The file type is not supported", Toast.LENGTH_SHORT)
 					.show();
 		}
 	}
