@@ -106,10 +106,10 @@ public class MainActivity extends Activity {
 		sbProgress
 				.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 					@Override
-					public void onProgressChanged(SeekBar seekBar, int i,
-							boolean b) {
-						if (b && mp != null) {
-							mp.seekTo(i);
+					public void onProgressChanged(SeekBar seekBar, int position,
+							boolean byUser) {
+						if (byUser && mp != null) {
+							mp.seekTo(position);
 						}
 					}
 
