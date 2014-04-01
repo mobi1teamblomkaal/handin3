@@ -2,8 +2,6 @@ package mob.assignment.mediaplayerassignment;
 
 import java.io.File;
 
-import android.widget.Toast;
-
 public abstract class FileType {
 	private static String[] mediaFileTypes = {
 		".3gp",
